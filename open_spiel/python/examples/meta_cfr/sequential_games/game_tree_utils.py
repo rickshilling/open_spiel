@@ -17,8 +17,7 @@
 import copy
 from typing import Any, Dict, List, Text, Tuple
 
-from open_spiel.python.examples.meta_cfr.sequential_games import cfr
-from open_spiel.python.examples.meta_cfr.sequential_games import openspiel_api
+import openspiel_api
 
 
 class HistoryTreeNode:

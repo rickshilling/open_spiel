@@ -18,7 +18,7 @@ from typing import List, Tuple
 
 import numpy as np
 
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import InfostateNode
+from open_spiel_typing import InfostateNode
 
 
 class Dataset:

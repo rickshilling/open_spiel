@@ -18,10 +18,10 @@ import copy
 import enum
 from typing import List, Tuple
 
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import GameTree
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import HistoryNode
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import InfostateMapping
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import InfostateNode
+from game_tree_utils import GameTree
+from open_spiel_typing import HistoryNode
+from open_spiel_typing import InfostateMapping
+from open_spiel_typing import InfostateNode
 
 
 class Players(enum.IntEnum):

@@ -17,7 +17,7 @@
 from typing import Any, Dict, Callable
 import jax.numpy as jnp
 import optax
-from open_spiel.python.examples.meta_cfr.sequential_games import game_tree_utils
+import game_tree_utils
 
 PyTree = Any
 Params = PyTree

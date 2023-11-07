@@ -21,10 +21,10 @@ import jax
 import jax.numpy as jnp
 import numpy as np
 
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import ApplyFn
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import InfostateMapping
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import InfostateNode
-from open_spiel.python.examples.meta_cfr.sequential_games.typing import Params
+from open_spiel_typing import ApplyFn
+from open_spiel_typing import InfostateMapping
+from open_spiel_typing import InfostateNode
+from open_spiel_typing import Params
 
 
 def get_batched_input(input_list: List[jax.Array],

@@ -25,13 +25,13 @@ import jax.numpy as jnp
 import numpy as np
 import optax
 
-from open_spiel.python.examples.meta_cfr.sequential_games import cfr
-from open_spiel.python.examples.meta_cfr.sequential_games import dataset_generator
-from open_spiel.python.examples.meta_cfr.sequential_games import game_tree_utils
-from open_spiel.python.examples.meta_cfr.sequential_games import models
-from open_spiel.python.examples.meta_cfr.sequential_games import openspiel_api
-from open_spiel.python.examples.meta_cfr.sequential_games import typing
-from open_spiel.python.examples.meta_cfr.sequential_games import utils
+import cfr
+import dataset_generator
+import game_tree_utils
+import models
+import openspiel_api
+import open_spiel_typing
+import utils
 
 
 FLAGS = flags.FLAGS
@@ -61,7 +61,7 @@ os.environ["XLA_PYTHON_CLIENT_MEM_FRACTION"] = "1.5"
 
 
 def append_counterfactual_values(
-    infostates: List[typing.InfostateNode],
+    infostates: List[open_spiel_typing.InfostateNode],
     counterfactual_values: Dict[str, List[List[float]]]):
   for infostate in infostates:
     counterfactual_values[infostate.infostate_string].append([
@@ -71,8 +71,8 @@ def append_counterfactual_values(
 
 
 def compute_next_policy_invariants(
-    infostates: typing.InfostateMapping, all_actions: List[int],
-    infostate_map: typing.InfostateMapping
+    infostates: open_spiel_typing.InfostateMapping, all_actions: List[int],
+    infostate_map: open_spiel_typing.InfostateMapping
 ) -> tuple[Dict[str, jnp.ndarray], Dict[str, List[int]]]:
   """Computes information needed to calculate next policy.
 
@@ -110,8 +110,8 @@ def compute_next_policy_invariants(
   return one_hot_representations, illegal_actions
 
 
-def compute_next_policy(infostates: typing.InfostateMapping,
-                        net_apply: typing.ApplyFn, net_params: typing.Params,
+def compute_next_policy(infostates: open_spiel_typing.InfostateMapping,
+                        net_apply: open_spiel_typing.ApplyFn, net_params: open_spiel_typing.Params,
                         epoch: int, all_actions: List[int],
                         one_hot_representations: Dict[str, jnp.ndarray],
                         illegal_actions: Dict[str,
@@ -184,11 +184,11 @@ def compute_next_policy(infostates: typing.InfostateMapping,
 
 
 def cfr_br_meta_data(
-    history_tree_node: typing.HistoryNode,
-    infostate_nodes: List[typing.InfostateNode],
-    all_infostates_map: List[typing.InfostateMapping], epochs: int,
-    net_apply: typing.ApplyFn, net_params: typing.Params,
-    all_actions: List[int], infostate_map: typing.InfostateMapping,
+    history_tree_node: open_spiel_typing.HistoryNode,
+    infostate_nodes: List[open_spiel_typing.InfostateNode],
+    all_infostates_map: List[open_spiel_typing.InfostateMapping], epochs: int,
+    net_apply: open_spiel_typing.ApplyFn, net_params: open_spiel_typing.Params,
+    all_actions: List[int], infostate_map: open_spiel_typing.InfostateMapping,
     key: hk.PRNGSequence
 ) -> tuple[Dict[str, jnp.ndarray], Dict[str, jnp.ndarray], List[float]]:
   """Collects counterfactual values for both players and best response for player_2.
@@ -362,8 +362,8 @@ class MetaCFRRegretAgent:
         key=self._rng)
     return player_2_best_response_values
 
-  def optimize_infoset(self, cfvalues: Any, infoset: List[typing.InfostateNode],
-                       infostate_map: typing.InfostateMapping,
+  def optimize_infoset(self, cfvalues: Any, infoset: List[open_spiel_typing.InfostateNode],
+                       infostate_map: open_spiel_typing.InfostateMapping,
                        rng: hk.PRNGSequence):
     """Apply updates to optimizer state.
 

@@ -17,7 +17,7 @@
 import random
 from typing import Any, List, Text, Tuple, Dict
 
-from open_spiel.python.examples.meta_cfr.sequential_games import world_representation
+import world_representation
 import pyspiel
 
 
