@@ -20,11 +20,11 @@ from absl import app
 from absl import flags
 import numpy as np
 
-from open_spiel.python.examples.meta_cfr.sequential_games import cfr
-from open_spiel.python.examples.meta_cfr.sequential_games import evaluation
-from open_spiel.python.examples.meta_cfr.sequential_games import game_tree_utils
-from open_spiel.python.examples.meta_cfr.sequential_games import meta_learning
-from open_spiel.python.examples.meta_cfr.sequential_games import openspiel_api
+import cfr
+import evaluation
+import game_tree_utils
+import meta_learning
+import openspiel_api
 
 
 FLAGS = flags.FLAGS

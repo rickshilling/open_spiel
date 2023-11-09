@@ -18,7 +18,7 @@ import copy
 from typing import Any, Dict, List, Text, Tuple
 
 import openspiel_api
-
+import cfr
 
 class HistoryTreeNode:
   """Tree node to build game tree in cfr and do DFS traverse on game tree.

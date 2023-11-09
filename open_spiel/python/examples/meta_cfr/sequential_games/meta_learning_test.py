@@ -23,9 +23,9 @@ import mock
 import numpy as np
 import optax
 
-from open_spiel.python.examples.meta_cfr.sequential_games import meta_learning
-from open_spiel.python.examples.meta_cfr.sequential_games import models
-from open_spiel.python.examples.meta_cfr.sequential_games import openspiel_api
+import meta_learning
+import models
+import openspiel_api
 
 FLAGS = flags.FLAGS
 
